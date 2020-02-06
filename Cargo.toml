@@ -15,7 +15,7 @@ doc = false
 
 [dependencies]
 libc = "0.2.44"
-lz4-sys = { path = "lz4-sys", version = "1.8.3" }
+lz4-sys = { path = "lz4-sys", version = "1.9.2" }
 
 [dev-dependencies]
 rand = "0.6.1"
