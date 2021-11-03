@@ -31,6 +31,14 @@ fn run() -> Result<(), Box<dyn Error>> {
         compiler
             .flag("-fno-tree-vectorize");
       },
+      "wasm32-unknown-unknown" => {
+        compiler.include("wasm-includes");
+
+        #[cfg(target_os = "macos")]
+        compiler.compiler("/usr/local/opt/llvm/bin/clang");
+        #[cfg(target_os = "macos")]
+        compiler.archiver("/usr/local/opt/llvm/bin/llvm-ar");
+      },
       _ => {}
     }
     compiler.compile("liblz4.a");
